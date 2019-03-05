@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiem tra nam nhuom</title>
+</head>
+<body>
+    <script>
+        var year = parseInt(prompt("Enter a year"));
+        var isLeapYear = false;
+
+        var isDivisibleBy4 = year % 4 == 0;
+        if(isDivisibleBy4){
+            var isDivisibleBy100 = year % 100 == 0;
+            if(isDivisibleBy100){
+                var isDivisibleby400 = year % 400 == 0;
+                if(isDivisibleby400){
+                    isLeapYear = true;
+                }
+
+            }else {
+                isLeapYear = true;
+            }
+        }
+    </script>
+</body>
+</html>
