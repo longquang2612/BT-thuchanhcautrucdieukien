@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="image/cat1.jpg" id="Cat1" onclick="Change(this.id)">
+<img src="image/cat2.jpg" id="Cat2" onclick="Change(this.id)">
+<img src="image/cat3.jpg" id="Cat3" onclick="Change(this.id)">
+<img src="image/cat4.jpg" id="Cat4" onclick="Change(this.id)">
+<img src="image/cat5.jpg" id="Cat5" onclick="Change(this.id)">
+<h2 id="thongbao"></h2>
+<!--bây giờ làm su kiện đổi ảnh-->
+<script>
+    window.onload =init();
+    function init() {
+        // vòng lặp để tạo ra đổi hình
+        for(var i =1;i<=5;i++){
+            // câu lệnh toán học random
+            var a = Math.floor(Math.random()*5+1);
+            // vòng lặp đưa ra tên ảnh từ cat1 -> cat5
+            document.getElementById("Cat"+i).src="image/cat"+a+'.jpg';
+            document.getElementById("Cat"+i).alt = "image/cat"+a+".jpg";
+        }
+    }
+    // tạo function đổi ảnh
+    function  Change(id) {
+        var a = Math.floor(Math.random() * 5 + 1);
+        document.getElementById(id).src = "image/cat" + a + '.jpg';
+        document.getElementById(id).alt = "image/cat" + a + '.jpg';
+        console.log(document.getElementById(id).alt);
+        Check();
+    }
+// tạo 1 function kiểm tra ảnh đúng sai
+    function Check() {
+        var count = 0;
+        for (var i =1; i<= 5 ; i++){
+            if ( document.getElementById("Cat"+i).alt == "image/cat"+i+".jpg"){
+                count++;
+            }
+        }
+        if (count == 5){
+            document.getElementById("thongbao").innerHTML = "Chúc mừng";
+        }
+        else {
+            document.getElementById("thongbao").innerHTML = "cố lên";
+        }
+    }
+</script>
+</body>
+</html>
+
